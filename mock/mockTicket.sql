@@ -1,6 +1,7 @@
 {
-    id:#,
-    server: references user_id,
-    items: references produt_id,
+    id:# auto incrementing,
+    server: references user_id gotten from req.session,
     total: cost,
+    items:[references product-id],
+    created_on: date.now(),
 }
