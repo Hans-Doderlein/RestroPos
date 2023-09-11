@@ -14,18 +14,18 @@
   </head>
 
   <body>
-     <header>
-        <div class="logo">
-            <img src="" alt="Logo">
-        </div>
-        <nav>
-            <ul>
-                <li><a href="">Products</a></li>
-                <li><a href="">Orders</a></li>
-                <li><a href="">Login</a></li>
-                <li><a href="">Log-out</a></li>
-            </ul>
-        </nav>
+    <header>
+      <div class='logo'>
+        <img src='' alt='Logo' />
+      </div>
+      <nav>
+        <ul>
+          <li><a href=''>Products</a></li>
+          <li><a href=''>Orders</a></li>
+          <li><a href=''>Login</a></li>
+          <li><a href=''>Log-out</a></li>
+        </ul>
+      </nav>
     </header>
     <div>
       <br />
@@ -51,20 +51,12 @@
       </div>
     </main>
     <aside>
-    <h2>My Cart</h2>
-    {{#each cartItems}}
-        <div class="cart-item" data-id="{{this.id}}">
-            <img src="{{this.image}}" alt="{{this.name}}" width="50" height="50">
-            <span>{{this.name}} - ${{this.price}}</span>
-            <button>-</button>
-            <button>+</button>
-            <button class="remove-item">X</button>
-        </div>
-    {{/each}}
-    <h3>Total: ${{totalCost}}</h3>
-    <button id="checkout-button">Checkout</button>
+      <h2>My Cart</h2>
+
+      <h3 id='cartTotal'>Total: </h3>
+      <button id='checkout-button'>send</button>
     </aside>
-    
+
   </body>
 
 </html>
