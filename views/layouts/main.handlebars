@@ -50,7 +50,21 @@
         {{{body}}}
       </div>
     </main>
-
+    <aside>
+    <h2>My Cart</h2>
+    {{#each cartItems}}
+        <div class="cart-item" data-id="{{this.id}}">
+            <img src="{{this.image}}" alt="{{this.name}}" width="50" height="50">
+            <span>{{this.name}} - ${{this.price}}</span>
+            <button>-</button>
+            <button>+</button>
+            <button class="remove-item">X</button>
+        </div>
+    {{/each}}
+    <h3>Total: ${{totalCost}}</h3>
+    <button id="checkout-button">Checkout</button>
+    </aside>
+    
   </body>
 
 </html>
