@@ -6,11 +6,12 @@ const signUp = async (event) => {
     const username = document.querySelector('#username-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
     const passwordConfirm = document.querySelector('#confirmpassword-signup').value.trim()
+    const error = document.querySelector('#error-signup')
   
     if (username && email && password) {
         if(password === passwordConfirm){
             if(validator(password)){
-                const response = await fetch('/api/users', {
+                const response = await fetch('/users/signup', {
                     method: 'POST',
                     body: JSON.stringify({ email, username , password }),
                     headers: { 'Content-Type': 'application/json' },
@@ -19,22 +20,22 @@ const signUp = async (event) => {
                 if (response.ok) {
                 document.location.replace('/');
                 } else {
-                    alert('Failed to sign up.');
+                    error.textContent = 'Failed to sign up.';
                 }
             }else {
-                alert('Password cannot contain special characters')
+                error.textContent = 'Password cannot contain special characters'
             }
         } else{
-            alert('Passwords do not match')
+            error.textContent = 'Passwords do not match'
         }
 
     } else{
-        alert('Failed to Signup')
+        error.textContent = 'Failed to Signup'
     }
   };
 
   const validator = (password) => {
-    if(password,includes('/^[a-zA-Z0-9]+$/')){
+    if(password.includes('/^[a-zA-Z0-9]+$/')){
         return true;
     } else {
         return false;
