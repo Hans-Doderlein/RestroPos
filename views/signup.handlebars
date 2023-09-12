@@ -1,30 +1,34 @@
-<!-- views/signup.handlebars -->
 <header>
   <h1>Restro POS</h1>
   <br />
   <h2>Sign Up Here!</h2>
 </header>
 <main>
-    <form id="signup-input">{{!-- method="POST" action="/signup"> --}}
-		<div>
-            <label for="email">Email:</label>
-            <input type="email" id="email-signup" name="email" required>
-        </div>
-        <div>
-            <label for="username">Username:</label>
-            <input type="text" id="username-signup" name="username" required>
-        </div>
-		<div>
-            <label for="password">Password:</label>
-            <input type="password" id="password-signup" name="password" required>
-        </div>
-        <div>
-            <label for="confirmPassword">Confirm Password:</label>
-            <input type="password" id="confirmPassword-signup" name="confirmPassword" required>
-        </div>
-        <button type="submit" id="submit-signup">Sign Up</button>
-        <p id="error-signup"></p>
-    </form>
-    <p>Already have an account? <a href="/login">Log in</a></p>
-<script src="public\js\signup.js"></script>
+  <form id='signup-input'>
+    <div>
+      <label for='email'>Email:</label>
+      <input type='email' id='email-signup' name='email' required />
+    </div>
+    <div>
+      <label for='username'>Username:</label>
+      <input type='text' id='username-signup' name='username' required />
+    </div>
+    <div>
+      <label for='password'>Password:</label>
+      <input type='password' id='password-signup' name='password' required />
+    </div>
+    <div>
+      <label for='confirmPassword'>Confirm Password:</label>
+      <input
+        type='password'
+        id='confirmPassword-signup'
+        name='confirmPassword'
+        required
+      />
+    </div>
+    <button type='submit' id='submit-signup'>Sign Up</button>
+    <p id='error-signup'></p>
+  </form>
+  <p>Already have an account? <a href='/login'>Log in</a></p>
+  <script src='public\js\signup.js'></script>
 </main>

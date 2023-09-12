@@ -20,25 +20,13 @@
       </div>
       <nav>
         <ul>
-          <li><a href=''>Products</a></li>
+          <li><a href=''>Menu</a></li>
           <li><a href=''>Orders</a></li>
-          <li><a href=''>Login</a></li>
           <li><a href=''>Log-out</a></li>
         </ul>
       </nav>
     </header>
     <div>
-      <br />
-      <nav>
-        <a href='/home'>Home</a>
-
-        {{#if loggedIn}}
-
-          <a>Logout</a>
-        {{else}}
-          <a>Login</a>
-        {{/if}}
-      </nav>
       <header>
         <h1>Restro POS</h1>
       </header>
@@ -50,12 +38,6 @@
         {{{body}}}
       </div>
     </main>
-    <aside>
-      <h2>My Cart</h2>
-
-      <h3 id='cartTotal'>Total: </h3>
-      <button id='checkout-button'>send</button>
-    </aside>
 
   </body>
 

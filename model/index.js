@@ -1,25 +1,23 @@
-const Products = require("./Products");
-const Orders =require('./Orders')
-const User = require('./User')
-
+const Products = require('./Products');
+const Orders = require('./Orders');
+const User = require('./User');
 
 // user has many orders, orders belong to one user
 User.hasMany(Orders, {
-    foreignkey: 'server',
-
+  foreignkey: 'server'
 });
 
 Orders.belongsTo(User, {
-    foreignkey: 'server'
+  foreignkey: 'server'
 });
 
 //orders has many products, products belongs to many orders
-Orders.belongsToMany(Products, {
-    foreignkey: 'product_id'
+Orders.hasMany(Products, {
+  foreignkey: 'product_id'
 });
 
 Products.belongsToMany(Orders, {
-    foreignkey: 'order_id'
+  foreignkey: 'order_id'
 });
 
-module.exports = {User, Products, Orders};
+module.exports = { User, Products, Orders };

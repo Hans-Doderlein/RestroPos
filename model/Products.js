@@ -2,9 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
-class Products extends Model {
- 
-}
+class Products extends Model {}
 
 Products.init(
   {
@@ -12,46 +10,43 @@ Products.init(
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
-      autoIncrement: true,
+      autoIncrement: true
     },
     // Name of dish
     name: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: false
     },
 
     // Cost od dish
     price: {
       type: DataTypes.DECIMAL,
-      allowNull: false,
-    
+      allowNull: false
     },
     // allergy (any validation?)
     allergy: {
       type: DataTypes.STRING,
       allowNull: false,
-    
+      defaultValue: 'None'
     },
     // Clarify type
     type: {
-        type: DataTypes.STRING,
-        allowNull: false,
-      
-      },
+      type: DataTypes.STRING,
+      allowNull: false
+    },
 
-      imgSRC:{
-        type: DataTypes.STRING,
-        unique: true,
-        allowNull:false
-      }
+    imgSRC: {
+      type: DataTypes.STRING,
+      unique: true,
+      allowNull: false
+    }
   },
   {
-    
     sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'products',
+    modelName: 'products'
   }
 );
 

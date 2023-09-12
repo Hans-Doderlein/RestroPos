@@ -12,9 +12,9 @@ save ticket: (POST) /orders/new
 
 view all ticket: (GET) /orders
 
-ticket by id: (GET) /orders/:ticket_id
+ticket by id: (GET) /orders/ticket_id/:id
 
-tickets by server: (GET)/orders/:server_id
+tickets by server: (GET)/orders/server_id/:id
 
 
 
@@ -29,6 +29,8 @@ home page (login page): (GET) /
 
 
 product page: (GET) /menu
+
+reset password page: (GET) /users/resetPassword
 
 
 

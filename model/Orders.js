@@ -2,11 +2,7 @@ const { Model, DataTypes } = require('sequelize');
 const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
-class Orders extends Model {
-  checkPassword(loginPw) {
-    return bcrypt.compareSync(loginPw, this.password);
-  }
-}
+class Orders extends Model {}
 
 Orders.init(
   {
@@ -33,8 +29,12 @@ Orders.init(
         key: 'id'
       }
     },
-    creared_on: {
+    created_on: {
       type: Date,
+      allowNull: false
+    },
+    total: {
+      type: DataTypes.DECIMAL,
       allowNull: false
     }
   },
