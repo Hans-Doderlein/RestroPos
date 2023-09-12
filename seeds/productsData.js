@@ -1,80 +1,81 @@
-
-const { Products } = require('../models');
-
+const { Products } = require('../model/index');
+const sequelize = require('../config/connection');
 const productsdata = [
   {
     name: 'Bruschetta',
-    price:10.99,
+    price: 10.99,
     allergy: 'Dairy',
     type: 'Appetizer',
-    imgSrc: '/images/bruschetta.jpg.jpg',
+    img_s_r_c: '/images/bruschetta.jpg.jpg'
   },
   {
     name: 'Chicken Alfredo',
-    price:12.99,
+    price: 12.99,
     allergy: 'Dairy',
     type: 'Main',
-    imgSrc: '/images/chickenAlfredo.jpg.jpg',
+    img_s_r_c: '/images/chickenAlfredo.jpg.jpg'
   },
   {
     name: 'Chicken Parm',
-    price:11.99,
+    price: 11.99,
     allergy: 'Dairy',
     type: 'Main',
-    imgSrc: '/images/chickenParm.jpg.jpg',
+    img_s_r_c: '/images/chickenParm.jpg.jpg'
   },
   {
     name: 'Cole Slaw',
-    price:9.99,
+    price: 9.99,
     allergy: 'Dairy',
     type: 'Side',
-    imgSrc: '/images/coleSlaw.jpg.jpg',
+    img_s_r_c: '/images/coleSlaw.jpg.jpg'
   },
   {
     name: 'Garlic Parmesan Fries',
-    price:8.99,
+    price: 8.99,
     allergy: 'Dairy',
     type: 'Side',
-    imgSrc: '/images/garlicparmesanFries.jpg.jpg',
+    img_s_r_c: '/images/garlicparmesanFries.jpg.jpg'
   },
   {
     name: 'Grilled Salmon',
-    price:13.99,
+    price: 13.99,
     allergy: 'Seafood',
     type: 'Main',
-    imgSrc: '/images/grilledSalmon.jpg.jpg',
+    img_s_r_c: '/images/grilledSalmon.jpg.jpg'
   },
   {
-    name: 'Roastes Garlic Mashed Potatoes',
-    price:9.99,
-    allergy: '',
+    name: 'Roasted Garlic Mashed Potatoes',
+    price: 9.99,
+    allergy: 'None',
     type: 'Side',
-    imgSrc: '/images/roastedgarlicmashedPotatoes.jpg.jpg',
+    img_s_r_c: '/images/roastedgarlicmashedPotatoes.jpg.jpg'
   },
   {
     name: 'Spinach and Artichoke Dip',
-    price:6.99,
-    allergy: '',
+    price: 6.99,
+    allergy: 'None',
     type: 'Side',
-    imgSrc: '/images/spinachandartichokeDip.jpg.jpg',
+    img_s_r_c: '/images/spinachandartichokeDip.jpg.jpg'
   },
   {
     name: 'Stuffed Portbello Mushrooms',
-    price:8.99,
-    allergy: '',
+    price: 8.99,
+    allergy: 'Mushroom',
     type: 'Side',
-    imgSrc: '/images/stuffedportbelloMushrooms.jpg.jpg',
+    img_s_r_c: '/images/stuffedportbelloMushrooms.jpg.jpg'
   },
   {
     name: 'Vegetable Stir Fry',
-    price:10.99,
-    allergy: '',
+    price: 10.99,
+    allergy: 'None',
     type: 'Side',
-    imgSrc: '/images/vegetablestirFry.jpg.jpg',
-  },
-
+    img_s_r_c: '/images/vegetablestirFry.jpg.jpg'
+  }
 ];
 
-const seedProducts = () => Products.bulkCreate(productsdata);
+const seedProducts = async () => {
+  await sequelize.sync({ force: false });
+  await Products.bulkCreate(productsdata);
+};
 
 module.exports = seedProducts;
