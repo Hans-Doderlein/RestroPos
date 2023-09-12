@@ -1,6 +1,7 @@
 const Products = require('./Products');
 const Orders = require('./Orders');
 const User = require('./User');
+const OrderProduct = require('./OrderProduct');
 
 // user has many orders, orders belong to one user
 User.hasMany(Orders, {
@@ -12,12 +13,12 @@ Orders.belongsTo(User, {
 });
 
 //orders has many products, products belongs to many orders
-Orders.hasMany(Products, {
-  foreignkey: 'product_id'
+Orders.belongsToMany(Products, {
+  through: OrderProduct
 });
 
 Products.belongsToMany(Orders, {
-  foreignkey: 'order_id'
+  through: OrderProduct
 });
 
-module.exports = { User, Products, Orders };
+module.exports = { User, Products, Orders, OrderProduct };

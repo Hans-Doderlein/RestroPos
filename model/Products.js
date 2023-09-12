@@ -1,5 +1,4 @@
 const { Model, DataTypes } = require('sequelize');
-const bcrypt = require('bcrypt');
 const sequelize = require('../config/connection');
 
 class Products extends Model {}
@@ -20,7 +19,7 @@ Products.init(
 
     // Cost od dish
     price: {
-      type: DataTypes.DECIMAL,
+      type: DataTypes.DECIMAL(4, 2),
       allowNull: false
     },
     // allergy (any validation?)
@@ -35,10 +34,8 @@ Products.init(
       allowNull: false
     },
 
-    imgSRC: {
-      type: DataTypes.STRING,
-      unique: true,
-      allowNull: false
+    img_s_r_c: {
+      type: DataTypes.STRING
     }
   },
   {
