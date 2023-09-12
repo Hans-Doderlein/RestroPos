@@ -1,0 +1,29 @@
+<section class="ticket-details" data-id="{{id}}">
+  <h1>Ticket Order</h1>
+
+  <!-- Date Created -->
+  <div class="created-on">
+    <h4>Date:</h4>
+    <p>{{created_on}}</p>
+  </div>
+
+  <!-- Server Information -->
+  <div class="server-info">
+    <h4>Server:</h4>
+    <p>{{server}}</p>
+  </div>
+
+  <!-- Items in the Ticket -->
+  <div class="ticket-items">
+    <h4>Items:</h4>
+    {{#each items}}
+      {{#if chosenByUser}}
+        <div class="cart-item" data-product-id="{{this.product_id}}">
+          <h6>{{name}} - ${{price}}</h6>
+          <p>Allergies: {{allergy}}</p>
+        </div>
+      {{/if}}
+    {{/each}}
+  </div>
+</section>
+
