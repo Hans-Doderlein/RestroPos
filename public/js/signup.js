@@ -1,3 +1,6 @@
+const signupForm = document.getElementById('signup-input');
+signupForm.addEventListener('submit', signUp);
+
 const signUp = async (event) => {
   event.preventDefault();
 
@@ -47,5 +50,3 @@ const checkEmail = (email) => {
 
   return emailRegex.test(email);
 };
-
-document.querySelector('.signup-input').addEventListener('submit', signUp);
