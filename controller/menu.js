@@ -15,7 +15,7 @@ router.get('/', withAuth, async (req, res) => {
     //loads menu with retrieved data
     res
       .status(200)
-      .json({ message: 'items found', itmes: items })
+
       .render('menu', { items });
   } catch (error) {}
 });

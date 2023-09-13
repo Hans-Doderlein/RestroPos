@@ -57,7 +57,7 @@ router.get('/', withAuth, async (req, res) => {
     //plugs serialized data into tickets page
     res
       .status(200)
-      .json({ message: 'orders found', orders: orders })
+
       .render('tickets', { orders });
   } catch (error) {
     res.status(404).json({ message: 'no orders found' });
@@ -76,10 +76,7 @@ router.get('/ticket_id/:id', withAuth, async (req, res) => {
     const ticket = ticketid.get({ plain: true });
 
     //loads ticket page with retrieved data
-    res
-      .status(200)
-      .json({ message: 'order found', order: ticket })
-      .render('tickets', { orders: [ticket] });
+    res.status(200).render('tickets', { orders: [ticket] });
   } catch (error) {
     res.status(404).json({ message: 'ticket not found' });
   }
@@ -100,10 +97,7 @@ router.get('/server_id/:id', withAuth, async (req, res) => {
     const tickets = serverTickets.map((ticket) => ticket.get({ plain: true }));
 
     //loads ticket page with retrieved tickets
-    res
-      .status(200)
-      .json({ message: 'tickets found', tickets: tickets })
-      .render('tickets', { orders: tickets });
+    res.status(200).render('tickets', { orders: tickets });
   } catch (error) {
     res.status(404).json({ message: 'tickets not found' });
   }

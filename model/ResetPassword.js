@@ -30,7 +30,7 @@ ResetPassword.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'orders'
+    modelName: 'resetpassword'
   }
 );
 
