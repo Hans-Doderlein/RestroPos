@@ -1,0 +1,47 @@
+<section class="new-item-form">
+    <h1>Create New Item</h1>
+
+    <form id="addItemForm">
+        <input type="hidden" name="id" value="{{nextId}}">
+
+        <!-- Item Name -->
+        <div class="item-group">
+            <label for="itemName">Name:</label>
+            <input type="text" id="itemName" name="name" required>
+        </div>
+
+        <!-- Dropdown for Item type -->
+        <div class="item-group">
+            <label for="item-type-{{id}}">Type: </label>
+            <select id="item-type-{{id}}" name="itemType">
+                <option value="appetizer">Appetizer</option>
+                <option value="main">Main</option>
+                <option value="side">Side</option>
+                <option value="drink">Drink</option>
+                <option value="dessert">Dessert</option>
+            </select>
+        </div>
+
+        <!-- Item Price -->
+        <div class="item-group">
+            <label for="itemPrice">Price:</label>
+            <input type="number" id="itemPrice" name="price" step="0.01" required>
+        </div>
+
+        <!-- Allergy Information -->
+        <div class="item-group">
+            <label for="allergyInfo">Allergy Info:</label>
+            <input type="text" id="allergyInfo" name="allergy">
+        </div>
+
+        <!-- Image Source -->
+        <div class="item-group">
+            <label for="imgSrc"> Add Image URL:</label>
+            <input type="text" id="imgSrc" name="imgSRC">
+        </div>
+
+        <button type="submit">Add Item</button>
+    </form>
+<script src="/public/js/newProduct.js"></script>
+</section>
+
