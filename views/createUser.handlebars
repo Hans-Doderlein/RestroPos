@@ -1,0 +1,27 @@
+<section class="user-management">
+    <h1>User Management</h1>
+
+    <!-- Add a new user -->
+    <form id="addUserForm">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Password (At least 6 characters, must contain a number and a letter)" required pattern="^(?=.*[a-zA-Z])(?=.*\d).+$" minlength="6">
+        <label for="isAdmin">Is Admin?</label>
+        <input type="checkbox" name="isAdmin">
+        <button type="submit">Add User</button>
+    </form>
+
+    <!-- List of users -->
+    <ul id="userList">
+        {{#each users}}
+        <li>
+            <span>ID: {{id}}</span>
+            <span>Username: {{username}}</span>
+            <span>Email: {{email}}</span>
+            <span>Is Admin: {{isAdmin}}</span>
+            <button data-id="{{id}}" class="removeUserBtn">Remove</button>
+        </li>
+        {{/each}}
+    </ul>
+ <script src=""></script>
+</section>
