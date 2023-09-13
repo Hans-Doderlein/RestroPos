@@ -21,7 +21,8 @@
         "handlebars": "^4.7.6",
         "mysql2": "^2.2.5",
         "nodemailer": "^6.9.4",
-        "sequelize": "^6.3.5"
+        "sequelize": "^6.3.5",
+        "uuid": "^9.0.1"
     },
     "devDependencies": {
         "prettier": "^3.0.3"
