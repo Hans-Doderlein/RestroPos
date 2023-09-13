@@ -1,4 +1,3 @@
-//
 
 const logout = async () => {
     const response = await fetch('/users/logout', {
@@ -9,8 +8,8 @@ const logout = async () => {
     if (response.ok) {
       document.location.replace('/');
     } else {
-      alert('Any error occured please try again');
+      alert('An error occured please try again');
     }
   };
   
-  document.querySelector('_____').addEventListener('click', logout);
+  document.querySelector('#logoutLink').addEventListener('click', logout);
