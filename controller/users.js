@@ -36,10 +36,7 @@ router.post('/login', async (req, res) => {
     req.session.userId = validUser.id;
     req.session.username = validUser.username;
 
-    res
-      .status(200)
-      .json({ message: 'login successful', user_id: validUser.id })
-      .redirect('/menu');
+    res.status(200).json({ message: 'login successful', user: validUser });
   } catch (error) {
     res.status(400).json({ error: error });
   }
@@ -62,7 +59,7 @@ router.post('/signup', async (req, res) => {
     req.session.userId = newUser.id;
     req.session.username = newUser.username;
 
-    res.status(200).json({ message: 'Signup sucessful' }).redirect('/menu');
+    res.status(200).json({ message: 'Signup sucessful', newUser: newUser });
   } catch (error) {
     res.status(400).json({ error: error });
   }

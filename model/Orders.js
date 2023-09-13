@@ -11,7 +11,7 @@ Orders.init(
       primaryKey: true,
       autoIncrement: true
     },
-    server: {
+    userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
