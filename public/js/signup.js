@@ -9,6 +9,8 @@ const signUp = async (event) => {
     .querySelector('#confirmpassword-signup')
     .value.trim();
 
+  console.log(email, error, username, password, passwordConfirm);
+
   if (username && email && password) {
     if (!checkEmail(email)) {
       error.textContent = 'Please use a valid email';
@@ -17,11 +19,15 @@ const signUp = async (event) => {
     if (password === passwordConfirm) {
       if (checkPassword(password)) {
         try {
-          const response = await fetch('/users/signup', {
+          const res = await fetch('/users/signup', {
             method: 'POST',
             body: JSON.stringify({ email, username, password }),
             headers: { 'Content-Type': 'application/json' }
           });
+
+          if (res.ok) {
+            document.location.replace('/');
+          }
         } catch (err) {
           error.textContent = 'Failed to sign up.';
         }
@@ -48,4 +54,5 @@ const checkEmail = (email) => {
   return emailRegex.test(email);
 };
 
-document.querySelector('.signup-input').addEventListener('submit', signUp);
+const signupForm = document.getElementById('signup-input');
+signupForm.addEventListener('submit', signUp);

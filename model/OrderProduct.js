@@ -5,15 +5,16 @@ class OrderProduct extends Model {}
 
 OrderProduct.init(
   {
-    quantity: {
+    id: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      primaryKey: true,
+      autoIncrement: true
     },
     order_id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: 'user',
+        model: 'orders',
         key: 'id'
       }
     },

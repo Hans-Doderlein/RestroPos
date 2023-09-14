@@ -5,7 +5,7 @@ const LogIn = async (event) => {
   const password = document.querySelector('#password-login').value.trim();
   const error = document.querySelector('#error-login');
 
-  if (email && password) {
+  if (username && password) {
     const response = await fetch('/users/login', {
       method: 'POST',
       body: JSON.stringify({ username, password }),
@@ -14,8 +14,10 @@ const LogIn = async (event) => {
 
     if (!response.ok) {
       error.textContent = 'Incorrect username or password. Please try again';
+    } else {
+      document.location.replace('/menu');
     }
   }
 };
 
-document.querySelector('.login-input').addEventListener('submit', LogIn);
+document.querySelector('#login-input').addEventListener('submit', LogIn);

@@ -5,11 +5,11 @@ const OrderProduct = require('./OrderProduct');
 
 // user has many orders, orders belong to one user
 User.hasMany(Orders, {
-  foreignkey: 'server'
+  foreignkey: 'userId'
 });
 
 Orders.belongsTo(User, {
-  foreignkey: 'server'
+  foreignkey: 'userId'
 });
 
 //orders has many products, products belongs to many orders
