@@ -2,7 +2,7 @@
   <h1>Create New Item</h1>
 
   <form id='addItemForm'>
-    <input type='hidden' name='id' value='{{nextId}}' />
+    <input type='hidden' name='id' id = 'identity' value='{{nextId}}' />
 
     <!-- Item Name -->
     <div class='item-group'>
@@ -13,7 +13,7 @@
     <!-- Dropdown for Item type -->
     <div class='item-group'>
       <label for='item-type-{{id}}'>Type: </label>
-      <select id='item-type-{{id}}' name='itemType'>
+      <select id='item-type' name='itemType'>
         <option value='appetizer'>Appetizer</option>
         <option value='main'>Main</option>
         <option value='side'>Side</option>
@@ -40,7 +40,7 @@
       <input type='text' id='imgSrc' name='imgSRC' />
     </div>
 
-    <button type='submit'>Add Item</button>
+    <button type='submit' id = 'add-item'>Add Item</button>
   </form>
   <script src='/js/newProduct.js'></script>
 </section>
