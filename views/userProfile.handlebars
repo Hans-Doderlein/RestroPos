@@ -1,0 +1,31 @@
+<div class="account-container">
+        <h1>My Account</h1>
+
+        <!-- Profile Info -->
+        <div class="account-info">
+            <!-- User Image -->
+            <div class="account-image">
+                <img src="{{}}" alt="User Image" width="100" height="100">
+            </div>
+            
+            <!-- User Details -->
+            <div class="account-details">
+                <p><strong>Username:</strong> {{username}}</p>
+                <p><strong>Name:</strong> {{name}}</p>
+                <p><strong>Email:</strong> {{email}}</p>
+            </div>
+        </div>
+
+        <!-- Admin-specific section -->
+        {{#if isAdmin}}
+        <div class="admin-section">
+            <h2>Admin Panel</h2>
+            <button>Create Item</button>
+			<button>Manage Orders</button>
+            <button>Manage Users</button>
+        </div>
+        {{/if}}
+        
+        <div class="edit-account">
+            <button>Edit Account</button>
+        </div>
