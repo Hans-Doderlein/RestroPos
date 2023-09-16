@@ -1,8 +1,7 @@
 <section class='new-item-form'>
   <h1>Create New Item</h1>
 
-  <form id='addItemForm'>
-    <input type='hidden' name='id' id = 'identity' value='{{nextId}}' />
+  <form id='addItemForm' enctype='multipart/form-data'>
 
     <!-- Item Name -->
     <div class='item-group'>
@@ -36,11 +35,18 @@
 
     <!-- Image Source -->
     <div class='item-group'>
-      <label for='imgSrc'> Add Image Path:</label>
-      <input type='text' id='imgSrc' name='imgSRC' />
+      <label for='img_s_r_c'> Add Image:</label>
+      <input
+        type='file'
+        name='img_s_r_c'
+        id='fileSelector'
+        accept='.jpg, .jpeg, .png'
+      />
+
+      <p id='errorType'></p>
     </div>
 
-    <button type='submit' id = 'add-item'>Add Item</button>
+    <button type='submit' id='add-item'>Add Item</button>
   </form>
   <script src='/js/newProduct.js'></script>
 </section>

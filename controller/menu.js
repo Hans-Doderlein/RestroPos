@@ -11,12 +11,13 @@ router.get('/', withAuth, async (req, res) => {
 
     //serializes products
     const items = menu.map((item) => item.get({ plain: true }));
-
+    console.log('items', items);
+    console.log('isAdmin', req.session.isAdmin);
     //loads menu with retrieved data
     res
       .status(200)
 
-      .render('menu', { items });
+      .render('menu', { items, isAdmin: req.session.isAdmin });
   } catch (error) {}
 });
 

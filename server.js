@@ -7,6 +7,7 @@ const routes = require('./controller');
 const sequelize = require('./config/connection');
 const helpers = require('./utils/helpers');
 const hbs = exphbs.create({ helpers });
+const multer = require('multer');
 
 //set up express app
 const app = express();
@@ -15,15 +16,15 @@ const PORT = process.env.PORT || 8000;
 
 //create session
 const sess = {
-    secret: 'Super secret secret',
-    cookie: {
-        maxAge: 10 * 60 * 1000
-    },
-    resave: false,
-    saveUninitialized: true,
-    store: new SequelizeStore({
-        db: sequelize
-    })
+  secret: 'Super secret secret',
+  cookie: {
+    maxAge: 10 * 60 * 1000
+  },
+  resave: false,
+  saveUninitialized: true,
+  store: new SequelizeStore({
+    db: sequelize
+  })
 };
 
 //set up view engine
@@ -39,5 +40,5 @@ app.use(routes);
 
 //sync and start the server
 sequelize.sync({ force: false }).then(() => {
-    app.listen(PORT, () => console.log('Now listening'));
+  app.listen(PORT, () => console.log('Now listening'));
 });

@@ -36,6 +36,11 @@ router.post('/login', async (req, res) => {
       return;
     }
 
+    console.log(validUser.isAdmin);
+    if (validUser.isAdmin) {
+      req.session.isAdmin = true;
+    }
+
     req.session.loggedIn = true;
     req.session.userId = validUser.id;
     req.session.username = validUser.username;

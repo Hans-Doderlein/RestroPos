@@ -1,10 +1,18 @@
 //checks if user is logged in
 const withAuth = (req, res, next) => {
-  // if (!req.session.loggedIn) {
-  //   res.redirect('/');
-  // } else {
-  next();
-  // }
+  if (!req.session.loggedIn) {
+    res.redirect('/');
+  } else {
+    next();
+  }
+};
+
+const withAdmin = (req, res, next) => {
+  if (!req.session.isAdmin) {
+    res.redirect('/menu');
+  } else {
+    next();
+  }
 };
 
 const getDate = () => {
@@ -24,4 +32,4 @@ const getDate = () => {
   return formattedDate;
 };
 
-module.exports = { withAuth, getDate };
+module.exports = { withAuth, getDate, withAdmin };
