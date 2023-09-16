@@ -3,23 +3,22 @@
 
   <!-- Date Created -->
   <div class="created-on">
-    <h4>Date: {{created_on}}</h4>
-    
+    <h4>Ticket: {{id}} Date: {{created_on}}</h4>
   </div>
 
   <!-- Server Information -->
   <div class="server-info">
     <h4>Server:</h4>
-    <p>{{server}}</p>
+    <p>{{userID}}</p>
   </div>
 
   <!-- Items in the Ticket -->
   <div class="ticket-items">
     <h4>Items:</h4>
-    {{#each items as |item|}}
+    {{#each orders as |order|}}
       
-        <div class="cart-item" data-product-id="{{item.product_id}}">
-          <h6>{{item.name}}</h6>
+        <div class="cart-item" data-product-id="{{product_id}}">
+          <h6>{{item.name}} : {{item.type}}</h6>
         </div>
     {{/each}}
   </div>

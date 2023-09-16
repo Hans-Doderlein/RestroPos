@@ -1,16 +1,15 @@
-<h4>menu</h4>
+<h2>Menu</h2>
 
 <div id="menuItems">
-    {{#each cartItems}}
+  {{#each items}}
     {{> product-details}}
-{{/each}}
+  {{/each}}
+  <br>
 </div>
 
-
-
 <aside id='currentTicket'>
-      <h2>New Ticket</h2>
-      <div id='currentItems'></div>
-      <h3 id='ticketTotal'></h3>
-      <button id='checkout-button'>send</button>
+  <h2>New Ticket</h2>
+  <div id='currentItems'></div>
+  <h3 id='ticketTotal'></h3>
+  <button id='checkout-button'>send</button>
 </aside>
