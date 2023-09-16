@@ -16,7 +16,7 @@ router.get('/', withAuth, async (req, res) => {
     res
       .status(200)
 
-      .render('menu', { items });
+      .render('menu', { items, isAdmin: req.session.isAdmin });
   } catch (error) {}
 });
 
