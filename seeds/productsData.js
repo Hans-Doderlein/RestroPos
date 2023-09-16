@@ -20,7 +20,7 @@ const productsdata = [
     price: 11.99,
     allergy: 'Dairy',
     type: 'Main',
-    img_s_r_c: '/images/chickenParm.jpg.jpg'
+    img_s_r_c: '/images/chickenParm.jpeg'
   },
   {
     name: 'Cole Slaw',
@@ -62,7 +62,7 @@ const productsdata = [
     price: 8.99,
     allergy: 'Mushroom',
     type: 'Side',
-    img_s_r_c: '/images/stuffedportbelloMushrooms.jpg.jpg'
+    img_s_r_c: '/images/stuffedportobelloMushrooms.jpg.jpg'
   },
   {
     name: 'Vegetable Stir Fry',

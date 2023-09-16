@@ -32,4 +32,8 @@ document
       method: 'POST',
       body: formData
     });
+
+    if (response.ok) {
+      document.location.replace('/menu');
+    }
   });

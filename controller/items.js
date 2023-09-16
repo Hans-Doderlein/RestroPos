@@ -40,6 +40,8 @@ router.post('/new', withAuth, upload.single('img_s_r_c'), async (req, res) => {
       allergy,
       img_s_r_c
     });
+
+    console.log('new product:', newProduct);
     res.status(200).json({ message: 'product created', product: newProduct });
   } catch (error) {
     //logs error if there is one
