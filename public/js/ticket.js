@@ -3,21 +3,23 @@ plusButton.forEach((index) => {
   index.addEventListener('click', addToCart);
 });
 
+//targets display area
 const ticketPrice = document.getElementById('ticketTotal');
 
 const itemDisplay = document.getElementById('currentItems');
 
 let total = 0;
 let items = [];
+
 async function addToCart(event) {
   event.preventDefault();
-  console.log(this.dataset.id);
-  //this.name returns name of dish
-  //this.price returns price of dish
+
+  //create and text fills p element
   const itemname = document.createElement('p');
   itemname.innerText = this.name;
   itemDisplay.append(itemname);
 
+  //adds taxes to total price
   total += Number(this.value * 1.07);
 
   items.push(this.dataset.id);
@@ -32,6 +34,7 @@ checkout.addEventListener('click', async (e) => {
   e.preventDefault();
 
   try {
+    //fetch post for new order
     await fetch('/orders/new', {
       method: 'post',
       body: JSON.stringify({ total, items }),
@@ -41,6 +44,7 @@ checkout.addEventListener('click', async (e) => {
     console.log('error:', error);
   }
 
+  //reset the values
   items = [];
   total = 0;
   document.location.replace('/menu');

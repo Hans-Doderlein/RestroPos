@@ -7,6 +7,7 @@ const withAuth = (req, res, next) => {
   }
 };
 
+//checks if user is an admin
 const withAdmin = (req, res, next) => {
   if (!req.session.isAdmin) {
     res.redirect('/menu');
@@ -24,7 +25,7 @@ const getDate = () => {
   const month = today.getMonth() + 1; // Months are zero-based
   const day = today.getDate();
 
-  // Format the date as desired (for example, YYYY-MM-DD)
+  // Format the date as desired
   const formattedDate = `${month.toString().padStart(2, '0')}-${day
     .toString()
     .padStart(2, '0')}-${year}`;
@@ -32,10 +33,10 @@ const getDate = () => {
   return formattedDate;
 };
 
-function format_time (date) {
-  // We use the 'toLocaleTimeString()' method to format the time as H:MM:SS AM/PM
-  const dateArray =date.toString().split(' ');
-  return dateArray[0] +' '+ dateArray[1]+ ' '+dateArray[2]
+//format time for handlebar display
+function format_time(date) {
+  const dateArray = date.toString().split(' ');
+  return dateArray[0] + ' ' + dateArray[1] + ' ' + dateArray[2];
 }
 
 module.exports = { withAuth, getDate, withAdmin, format_time };

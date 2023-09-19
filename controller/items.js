@@ -1,17 +1,15 @@
 const multer = require('multer');
 const { Products } = require('../model/index');
-
 const { withAuth, withAdmin } = require('../utils/helpers');
-
 const router = require('express').Router();
 
 // Configure Multer to specify where to store uploaded files
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, 'public/images'); // Store files in the "uploads" directory
+    cb(null, 'public/images'); // Store files in the "images" directory
   },
   filename: (req, file, cb) => {
-    cb(null, file.originalname.split(' ').join('')); // Append a timestamp to the file name to make it unique
+    cb(null, file.originalname.split(' ').join(''));
   }
 });
 
@@ -41,7 +39,6 @@ router.post('/new', withAuth, upload.single('img_s_r_c'), async (req, res) => {
       img_s_r_c
     });
 
-    console.log('new product:', newProduct);
     res.status(200).json({ message: 'product created', product: newProduct });
   } catch (error) {
     //logs error if there is one

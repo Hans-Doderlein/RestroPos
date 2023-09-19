@@ -1,7 +1,6 @@
 const router = require('express').Router();
 const ResetPassword = require('../model/ResetPassword');
 const { User } = require('../model/index');
-
 const { withAuth } = require('../utils/helpers');
 const { v4: uuidv4 } = require('uuid');
 const nodemailer = require('nodemailer');
@@ -67,8 +66,6 @@ router.post('/signup', async (req, res) => {
     req.session.userId = newUser.id;
     req.session.username = newUser.username;
 
-    console.log('new user:', newUser);
-
     res.status(200).json({ message: 'Signup sucessful', newUser: newUser });
   } catch (error) {
     res.status(400).json({ error: error });
@@ -79,6 +76,7 @@ router.get('/resetPassword', (req, res) => {
   res.render('resetPassword');
 });
 
+//route for password reset
 router.post('/resetPassword', async (req, res) => {
   try {
     const finduser = await ResetPassword.findOne({
@@ -87,6 +85,8 @@ router.post('/resetPassword', async (req, res) => {
 
     let resetCode;
     let newReset;
+
+    //checks if there is an active reset code for that user
     if (finduser) {
       resetCode = finduser.resetCode;
     } else {
@@ -97,8 +97,6 @@ router.post('/resetPassword', async (req, res) => {
         resetCode: resetCode
       });
     }
-
-    console.log('new reset', newReset);
 
     const resetUrl = req.body.url + '/users/newPass/' + resetCode;
 
@@ -133,8 +131,10 @@ router.post('/resetPassword', async (req, res) => {
   }
 });
 
+//route for checking if reset code exists
 router.get('/newPass/:code', async (req, res) => {
   try {
+    //checks if reset code exists
     const resetUser = await ResetPassword.findOne({
       where: {
         resetCode: req.params.code
@@ -149,6 +149,7 @@ router.get('/newPass/:code', async (req, res) => {
   }
 });
 
+//route for updating password
 router.put('/newPass', async (req, res) => {
   const { email, password } = req.body;
 

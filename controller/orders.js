@@ -1,13 +1,11 @@
 const { User, Products, Orders, OrderProduct } = require('../model/index');
 const { withAuth, getDate } = require('../utils/helpers');
-
 const router = require('express').Router();
 
 //creates a new ticket using the request body
 router.post('/new', withAuth, async (req, res) => {
   //deconstruct the request body
   const { total, items } = req.body;
-  console.log('items:', items), console.log('total:', total);
 
   try {
     //create ticket using info from body, session, and heloer functions
@@ -20,13 +18,13 @@ router.post('/new', withAuth, async (req, res) => {
 
     const orderId = newTicket.id;
 
+    //map through item array, format for bulkcreate
     const itemArray = items.map((item) => {
       return { order_id: orderId, product_id: item };
     });
 
+    //creates multiple tables using user input
     const newTicketItem = await OrderProduct.bulkCreate(itemArray);
-
-    console.log(newTicketItem);
 
     //renders menu after ticket is created
     res.status(200).json({
@@ -50,15 +48,13 @@ router.get('/', withAuth, async (req, res) => {
     //serializes data
     const orders = allOrders.map((order) => order.get({ plain: true }));
 
-    console.log('orders ', orders);
-
     let products = [];
 
+    //serializes through all products in the order
     allOrders.forEach((order) => {
       const product = order.products.map((item) => item.get({ plain: true }));
       products.push(product);
     });
-    console.log('products:', products);
 
     //plugs serialized data into tickets page
     res
