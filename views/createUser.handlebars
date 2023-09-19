@@ -1,27 +1,65 @@
-<section class="user-management">
-    <h1>User Management</h1>
+<!-- views/user-management.handlebars -->
+<section class="box user-management">
+  <h1 class="title is-4">User Management</h1>
 
-    <!-- Add a new user -->
-    <form id="addUserForm">
-        <input type="text" name="username" placeholder="Username" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="password" name="password" placeholder="Password (At least 6 characters, must contain a number and a letter)" required>
-        <label for="isAdmin">Is Admin?</label>
-        <input type="checkbox" name="isAdmin">
-        <button type="submit">Add User</button>
-    </form>
+  <!-- Add a new user -->
+  <form id="addUserForm">
+    <div class="field is-horizontal">
+      <div class="field-body">
+        <div class="field">
+          <label class="label">Username:</label>
+          <div class="control">
+            <input type="text" class="input" name="username" placeholder="Username" required>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Email:</label>
+          <div class="control">
+            <input type="email" class="input" name="email" placeholder="Email" required>
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Password:</label>
+          <div class="control">
+            <input type="password" class="input" name="password" placeholder="Password (At least 6 characters, must contain a number and a letter)" required>
+          </div>
+        </div>
+        <div class="field">
+          <label class="checkbox">
+            <input type="checkbox" name="isAdmin"> Is Admin?
+          </label>
+        </div>
+        <div class="field">
+          <div class="control">
+            <button type="submit" class="button is-primary">Add User</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
 
-    <!-- List of users -->
-    <ul id="userList">
-        {{#each users}}
-        <li>
-            <span>ID: {{id}}</span>
-            <span>Username: {{username}}</span>
-            <span>Email: {{email}}</span>
-            <span>Is Admin: {{isAdmin}}</span>
-            <button data-id="{{id}}" class="removeUserBtn">Remove</button>
-        </li>
-        {{/each}}
-    </ul>
- <script src=""></script>
+  <!-- List of users -->
+  <ul id="userList">
+    {{#each users}}
+    <li class="box">
+      <div class="columns is-mobile is-vcentered">
+        <div class="column">
+          <span class="subtitle is-6">ID: {{id}}</span>
+        </div>
+        <div class="column">
+          <span class="subtitle is-6">Username: {{username}}</span>
+        </div>
+        <div class="column">
+          <span class="subtitle is-6">Email: {{email}}</span>
+        </div>
+        <div class="column">
+          <span class="subtitle is-6">Is Admin: {{isAdmin}}</span>
+        </div>
+        <div class="column">
+          <button data-id="{{id}}" class="button is-danger removeUserBtn">Remove</button>
+        </div>
+      </div>
+    </li>
+    {{/each}}
+  </ul>
 </section>

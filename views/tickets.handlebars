@@ -1,10 +1,10 @@
-<section id="ticket" class="ticket-container">
-    <h1>All Tickets</h1>
+<!-- views/ticket-container.handlebars -->
+<section id="ticket" class="ticket-container section">
+    <h1 class="title">All Tickets</h1>
 
     {{#each orders as |ticket|}}
-      <div class="ticket-container">
+      <div class="box">
         {{> ticket-details }}
       </div>
     {{/each}}
 </section>
-

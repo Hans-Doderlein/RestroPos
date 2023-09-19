@@ -1,26 +1,26 @@
-<h4>menu</h4>
+<!-- views/menu.handlebars -->
+<section class="menu section">
+  <h4 class="title is-4">Menu</h4>
 
-<div id="menuItems">
+  <div id="menuItems" class="columns is-multiline">
     {{#each items as |item|}}
     {{> product-details}}
-{{/each}}
-</div>
+    {{/each}}
+  </div>
 
+  <aside id='currentTicket' class="box">
+    <h2 class="title is-4">New Ticket</h2>
+    <div id='currentItems'></div>
+    <h3 id='ticketTotal'></h3>
+    <button id='checkout-button' class="button is-primary">Send</button>
 
+    {{#if isAdmin}}
+    <h2 class="title is-4">New Item</h2>
+    <div id='newItems'></div>
 
-<aside id='currentTicket'>
-      <h2>New Ticket</h2>
-      <div id='currentItems'></div>
-      <h3 id='ticketTotal'></h3>
-      <button id='checkout-button'>send</button>
-
-{{#if isAdmin}}
-      <h2>New Item</h2>
-      <div id='newItems'></div>
-      
-      <a href="/items/new"><button id='newItemBtn'>Create Item</button></a>
-      {{/if}}
-</aside>
+    <a href="/items/new" class="button is-success" id='newItemBtn'>Create Item</a>
+    {{/if}}
+  </aside>
+</section>
 
 <script src="/js/ticket.js"></script>
-

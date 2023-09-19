@@ -1,12 +1,10 @@
-<section class="ticket-details" data-id="{{id}}">
-  <h1>Ticket #: {{id}}</h1>
-
-  
+<!-- views/ticket-details.handlebars -->
+<section class="box ticket-details" data-id="{{id}}">
+  <h1 class="title is-4">Ticket #: {{id}}</h1>
 
   <!-- Date Created -->
   <div class="created-on">
     <h4>Date: {{format_time created_on}}</h4>
-    
   </div>
 
   <!-- Server Information -->
@@ -19,13 +17,10 @@
   <div class="ticket-items">
     <h4>Items:</h4>
     {{#each products as |item|}}
-      
-        <div class="cart-item" data-product-id="{{id}}">
-          <h6>{{name}}</h6>
-        </div>
+      <div class="box cart-item" data-product-id="{{id}}">
+        <h6 class="subtitle is-6">{{name}}</h6>
+      </div>
     {{/each}}
-
     <h4>Total: ${{total}}</h4>
   </div>
 </section>
-
