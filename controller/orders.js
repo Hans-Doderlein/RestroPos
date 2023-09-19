@@ -38,8 +38,8 @@ router.post('/new', withAuth, async (req, res) => {
       newTicket: newTicket,
       items: newTicketItem
     });
-  } catch (error) {
-    res.status(400).json({ error: error });
+  } catch (err) {
+    res.status(504).json({ message: 'ticket not saved', error: err });
   }
 });
 
@@ -53,21 +53,16 @@ router.get('/', withAuth, async (req, res) => {
 
     //serializes data
     const orders = allOrders.map((order) => order.get({ plain: true }));
-   
 
-    console.log('orders ',orders)
+    console.log('orders ', orders);
 
-    let products=[]
+    let products = [];
 
     allOrders.forEach((order) => {
-      
-     
-        const product = order.products.map((item) => item.get({ plain: true }))
-        products.push(product)
-        
-      
+      const product = order.products.map((item) => item.get({ plain: true }));
+      products.push(product);
     });
-    console.log('products:',products)
+    console.log('products:', products);
 
     //plugs serialized data into tickets page
     res
