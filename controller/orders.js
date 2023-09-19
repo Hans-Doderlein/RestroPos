@@ -20,8 +20,6 @@ router.post('/new', withAuth, async (req, res) => {
 
     const orderId = newTicket.id;
 
-    console.log('orderId:', orderId);
-
     const itemArray = items.map((item) => {
       return { order_id: orderId, product_id: item };
     });
