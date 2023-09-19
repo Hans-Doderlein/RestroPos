@@ -53,14 +53,29 @@ router.get('/', withAuth, async (req, res) => {
 
     //serializes data
     const orders = allOrders.map((order) => order.get({ plain: true }));
+   
+
+    console.log('orders ',orders)
+
+    let products=[]
+
+    allOrders.forEach((order) => {
+      
+     
+        const product = order.products.map((item) => item.get({ plain: true }))
+        products.push(product)
+        
+      
+    });
+    console.log('products:',products)
 
     //plugs serialized data into tickets page
     res
       .status(200)
 
-      .render('tickets', { orders });
+      .render('tickets', { orders, products });
   } catch (error) {
-    res.status(404).json({ message: 'no orders found' });
+    res.status(404).json({ message: 'no orders found', err: error });
   }
 });
 
