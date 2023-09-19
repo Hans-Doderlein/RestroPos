@@ -24,8 +24,6 @@ router.post('/new', withAuth, async (req, res) => {
       return { order_id: orderId, product_id: item };
     });
 
-    console.log('item array:', itemArray);
-
     const newTicketItem = await OrderProduct.bulkCreate(itemArray);
 
     console.log(newTicketItem);
