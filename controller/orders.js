@@ -12,7 +12,7 @@ router.post('/new', withAuth, async (req, res) => {
   try {
     //create ticket using info from body, session, and heloer functions
     const newTicket = await Orders.create({
-      userId: 1,
+      userId: req.session.userId,
 
       created_on: getDate(),
       total: total
