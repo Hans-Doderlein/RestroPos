@@ -1,8 +1,23 @@
-<section class='cart-item' data-id='{{id}}'>
-
-  <img src='{{img_s_r_c}}' alt='{{name}}' width='50' height='50' />
-  <h6>{{name}} - ${{price}}</h6>
-  <p>Allergies: {{allergy}}</p>
-
-  <button id='addToCart' data-id='{{id}}' name="{{name}}"value={{price}}>+</button>
+<!-- views/cart-item.handlebars -->
+<section class="box cart-item" data-id="{{id}}">
+  <div class="columns is-vcentered">
+    <div class="column is-narrow">
+      <img src="{{img_s_r_c}}" alt="{{name}}" width="50" height="50" />
+    </div>
+    <div class="column">
+      <h6 class="title is-6">{{name}} - ${{price}}</h6>
+      <p>Allergies: {{allergy}}</p>
+    </div>
+    <div class="column is-narrow">
+      <button
+        id="addToCart"
+        data-id="{{id}}"
+        name="{{name}}"
+        value="{{price}}"
+        class="button is-primary"
+      >
+        +
+      </button>
+    </div>
+  </div>
 </section>
