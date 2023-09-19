@@ -1,27 +1,31 @@
 <section class="ticket-details" data-id="{{id}}">
   <h1>Ticket #: {{id}}</h1>
 
+  
+
   <!-- Date Created -->
   <div class="created-on">
-    <h4>Date: {{created_on}}</h4>
+    <h4>Date: {{format_time created_on}}</h4>
     
   </div>
 
   <!-- Server Information -->
   <div class="server-info">
     <h4>Server:</h4>
-    <p>{{server}}</p>
+    <p>{{user.username}}</p>
   </div>
 
   <!-- Items in the Ticket -->
   <div class="ticket-items">
     <h4>Items:</h4>
-    {{#each items as |item|}}
+    {{#each products as |item|}}
       
-        <div class="cart-item" data-product-id="{{item.product_id}}">
-          <h6>{{item.name}}</h6>
+        <div class="cart-item" data-product-id="{{id}}">
+          <h6>{{name}}</h6>
         </div>
     {{/each}}
+
+    <h4>Total: ${{total}}</h4>
   </div>
 </section>
 

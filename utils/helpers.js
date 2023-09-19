@@ -32,4 +32,10 @@ const getDate = () => {
   return formattedDate;
 };
 
-module.exports = { withAuth, getDate, withAdmin };
+function format_time (date) {
+  // We use the 'toLocaleTimeString()' method to format the time as H:MM:SS AM/PM
+  const dateArray =date.toString().split(' ');
+  return dateArray[0] +' '+ dateArray[1]+ ' '+dateArray[2]
+}
+
+module.exports = { withAuth, getDate, withAdmin, format_time };
