@@ -1,5 +1,4 @@
 <html lang='en'>
-
   <head>
     <meta charset='utf-8' />
     <meta name='viewport' content='width=device-width, initial-scale=1.0' />
@@ -12,7 +11,6 @@
     />
     <link rel='stylesheet' type='text/css' href='/css/styles.css' />
   </head>
-
   <body>
     <header>
       <div class='logo'>
@@ -22,9 +20,14 @@
         <ul>
           <li><a id='menuLink' href='/menu'>Menu</a></li>
           <li><a id='ordersLink' href='/orders'>Orders</a></li>
-
           <li><a id='logoutLink' href='/users/logout'>Log-out</a></li>
 
+          <!-- Admin section starts here -->
+          {{#if isAdmin}}
+          <li><a id='createItemLink' href='/newItem'>Create New Item</a></li>
+          {{/if}}
+          <!-- Admin section ends here -->
+          
         </ul>
       </nav>
     </header>
@@ -34,7 +37,5 @@
         {{{body}}}
       </div>
     </main>
-
   </body>
-
 </html>

@@ -31,6 +31,9 @@ const sess = {
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
+// Register Handlebars partials
+require('./utils/registerPartials'); 
+
 //middelware
 app.use(session(sess));
 app.use(express.json());
